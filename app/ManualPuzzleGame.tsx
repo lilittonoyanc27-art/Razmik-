@@ -209,7 +209,7 @@ export default function ManualPuzzleGame({
   const pieceW = cellW + pad * 2;
   const pieceH = cellH + pad * 2;
   const trayCols = Math.max(1, Math.floor((trayWidth - 22 + 8) / Math.max(1, pieceW + 8)));
-  const correctCount = layout.board.reduce((total, id, slot) => total + (id === slot ? 1 : 0), 0);
+  const correctCount = layout.board.reduce<number>((total, id, slot) => total + (id === slot ? 1 : 0), 0);
   const isComplete = correctCount === level.pieces;
 
   const commit = useCallback((next: PuzzleLayout) => {
